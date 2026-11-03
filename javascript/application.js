@@ -1,4 +1,9 @@
-console.log("Hello from JavaScript!");
+// require 'swal'
+// Swal is the class defined by Sweet Alert
+import Swal from "sweetalert2";
+import Typed from "typed.js";
+
+// console.log("Hello from JavaScript!");
 
 // 1. Select any elements
 const usernameInput = document.querySelector("#username");
@@ -18,6 +23,19 @@ const logIn = async () => {
   });
   const data = await response.json();
   console.log(data);
+  if (response.ok) {
+    Swal.fire({
+      title: "Logged In!",
+      text: "You clicked the button!",
+      icon: "success",
+    });
+  } else {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Something went wrong!",
+    });
+  }
 };
 
 // 2. Add event
